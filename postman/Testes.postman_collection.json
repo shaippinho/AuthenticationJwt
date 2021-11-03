@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "86c37cd3-7ed1-45cd-a891-b0e753d12253",
+		"name": "Testes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Anonymous",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:53051/api/auth/anonymous",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53051",
+					"path": [
+						"api",
+						"auth",
+						"anonymous"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticated",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:53051/api/auth/Authenticated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53051",
+					"path": [
+						"api",
+						"auth",
+						"Authenticated"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Manager",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:53051/api/auth/Manager",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53051",
+					"path": [
+						"api",
+						"auth",
+						"Manager"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:53051/api/auth/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53051",
+					"path": [
+						"api",
+						"auth",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"token\",pm.response.json().token.result)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"batman\",\r\n  \"password\": \"batman\",\r\n  \"role\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:53051/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53051",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
